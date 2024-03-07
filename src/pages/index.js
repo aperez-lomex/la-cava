@@ -28,15 +28,15 @@ const IndexPage = ({data}) => {
 	const cavas = data.allContentfulCavas.edges;
 	const [navbarMenuOpen, setNavbarMenuOpen] = useState(false);
  
-	useEffect(() => {
-		const handleResize = () => {		  
-		  if(window.innerWidth >= 768) setNavbarMenuOpen(false);
-		};
-		window.addEventListener('resize', handleResize);
-		return () => {
-		  window.removeEventListener('resize', handleResize);
-		};
-	  }, []);
+	// useEffect(() => {
+	// 	const handleResize = () => {		  
+	// 	  if(window.innerWidth >= 768) setNavbarMenuOpen(false);
+	// 	};
+	// 	window.addEventListener('resize', handleResize);
+	// 	return () => {
+	// 	  window.removeEventListener('resize', handleResize);
+	// 	};
+	//   }, []);
 
   return (
     <main style={pageStyles}> 
@@ -57,7 +57,7 @@ const IndexPage = ({data}) => {
 			</div>
 		</div>
 		<div className={navbarMenuOpen ? 'mobile-navbar-menu show-navbar-menu' : 'mobile-navbar-menu'}></div>
-		<div className="desktop-menu-container">
+		{/* <div className="desktop-menu-container">
 			<ul>
 				<li>
 					<a href="#home">Inicio</a>
@@ -69,7 +69,7 @@ const IndexPage = ({data}) => {
 					<a href="#wineries">Bodegas</a>
 				</li>
 			</ul>
-		</div>
+		</div> */}
 		<div id="home" className="hero">
 			<div className="hero-overlay">
 				<div className="hero-headers">
@@ -118,6 +118,35 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>
 		</div>
+		<div  id="instagram" className="instagram">
+			<div className="instagram-content-container">
+				<h2>Instagram</h2>
+				<h3>Síguenos en Instagram para mantenerte al tanto de nuestros eventos y productos</h3>
+				<div className="instagram-profile-header">
+					<div className="instagram-profile-picture">
+						<div className="instagram-profile-picture-container">
+						</div>
+					</div>
+					<div className="instagram-profile-info">
+						<h4><a href="https://instagram.com/lacavaespecialidades" target="_blank">LA CAVA</a></h4>
+						<span>Wine/spirits</span>
+						<p>Disfruta la Experiencia de Nuestras Mejores Bodegas Españolas ¡Brindemos juntos! Wine distributor🍷🍇 México | España</p>
+					</div>
+				</div>
+				<div className="instagram-posts-container">	
+					{
+						data.allInstaNode.edges.map(({ node }) => (
+							
+								<img src={node.localFile.childImageSharp.fixed.src}/>  
+															
+						))
+					}
+				</div>
+				<div className="instagram-cta-container">
+					<a className="instagram-cta" href="https://instagram.com/lacavaespecialidades" target="_blank">Ver en Instagram</a>
+				</div>
+			</div>		
+		</div>
     </main>
   )
   
@@ -140,7 +169,24 @@ export const assetQuery = graphql`
 					}
 				}
 			}
-		}
+		},
+		allInstaNode(sort: {timestamp: DESC}, limit: 9) {
+			edges {
+			  node {
+				thumbnails {
+				  src
+				}
+				localFile {
+					childImageSharp {
+					  fixed(width: 600, height: 600) {
+						...GatsbyImageSharpFixed
+					  }
+					}
+				}
+			  }
+			}
+		  }
+
 	}`
 
 export default IndexPage

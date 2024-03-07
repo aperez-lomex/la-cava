@@ -38,6 +38,12 @@ module.exports = {
           }
         ],
       },
+    },
+    {
+      resolve: 'gatsby-source-instagram',
+		options: {
+		username: '49946873500', 
+		},
     }
 ]
 };

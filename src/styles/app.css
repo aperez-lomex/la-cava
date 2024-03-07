@@ -22,6 +22,55 @@
 .desktop-menu-container ul li a{
     color: #161716;
 }
+
+.navbar-button-container {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.burger-button-line-top {
+    position: absolute;
+    height: 3px;
+    background: #000;
+    transition: 0.25s;
+    width: 100%;
+}
+
+.burger-button-line-bottom {
+    position: absolute;
+    height: 3px;
+    background: #000;
+    transition: 0.25s;
+    width: 80%;
+    margin-top: 12px;
+}
+
+.display-close-navbar-icon-line-top {
+    transform: translate(0) rotate(45deg);
+}
+
+.display-close-navbar-icon-line-bottom {
+    transform: translate(0) rotate(-45deg);
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.mobile-navbar-menu {
+    display: none;
+    width: 100%;
+    background: #fff;
+    height: 100%; 
+    position: fixed;
+    top: 100px;
+    z-index: 9999;
+}
+
+.show-navbar-menu {
+    display: block;
+}
+
 .navbar-container {
     position: fixed;
     padding: 0 16px;
@@ -46,6 +95,7 @@
     color: #fff;
     padding: 10px;
     text-align: center;
+    cursor: pointer;
 }
 
 .hero {
@@ -214,6 +264,114 @@
     text-align: justify;
 }
 
+.instagram {
+    padding: 32px 200px;
+    background: #fff;
+}
+
+.instagram-content-container {}
+
+.instagram-profile-header {
+    display: flex;
+}
+
+.instagram-profile-picture {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.instagram-profile-picture-container {
+    background-image: url('../images/La_Cava_Logo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    display: block;
+    border-radius: 50%;
+    border: 1px solid #000;
+}
+
+.instagram-profile-info {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.instagram-profile-info p,
+.instagram-profile-info h4 {
+    margin: 0;
+}
+
+.instagram-profile-info h4 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.instagram-profile-info h4 a {
+    text-decoration: none;
+    color: #000;
+}
+
+.instagram-profile-info span, 
+.instagram-profile-info p {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.instagram-content-container h2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.instagram-content-container h3 {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+}
+
+.instagram-posts-container {
+    column-count: 3;
+    gap: 10px;
+    padding: 16px 0;
+
+}
+
+.instagram-posts-container img{
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.instagram-cta-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.instagram-cta {
+    background: #97a19a;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 1224px) {
     .wineries-cards-container {
         column-count: 1;
@@ -232,59 +390,8 @@
 }
 
 @media screen and (max-width: 767px) {
-
-    .desktop-menu-container {
-        display: none;
-    }
     .hero {
         height: 50vh;
-    }
-    .navbar-button-container {
-        width: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .burger-button-line-top {
-        position: absolute;
-        height: 3px;
-        background: #000;
-        transition: 0.25s;
-        width: 100%;
-    }
-
-    .burger-button-line-bottom {
-        position: absolute;
-        height: 3px;
-        background: #000;
-        transition: 0.25s;
-        width: 80%;
-        margin-top: 12px;
-    }
-
-    .display-close-navbar-icon-line-top {
-        transform: translate(0) rotate(45deg);
-    }
-
-    .display-close-navbar-icon-line-bottom {
-        transform: translate(0) rotate(-45deg);
-        margin: 0 !important;
-        width: 100% !important;
-    }
-
-    .mobile-navbar-menu {
-        display: none;
-        width: 100%;
-        background: #fff;
-        height: 100%; 
-        position: fixed;
-        top: 100px;
-        z-index: 9999;
-    }
-
-    .show-navbar-menu {
-        display: block;
     }
 
     .history {
@@ -343,6 +450,18 @@
     .card-text {
         padding: 8px 32px 32px 32px;
         text-align: center;
+    }
+
+    .instagram {
+        padding: 32px;
+    }
+    
+    .instagram-posts-container {
+        gap: 2px;
+    }
+
+    .instagram-posts-container img {
+        margin-bottom: 2px;
     }
 
 }
