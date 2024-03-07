@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useEffect, useState }  from 'react'
 import laCavaLogo from '../images/La_Cava_Logo.jpg'
-import heroBannerImg from '../images/3604a3d6-f345-4ce3-8efd-bb41919601ba.jpeg' 
+import troncoImg from '../images/54166ce0-db36-489b-8d69-49398adf9788.png' 
 import '../styles/app.css';
 
 const pageStyles = {
@@ -35,7 +35,7 @@ const IndexPage = () => {
 					<span className={navbarMenuOpen ? 'burger-button-line-bottom display-close-navbar-icon-line-bottom' : 'burger-button-line-bottom'}></span>
 				</a>
 			</div> 
-			<div>
+			<div className="navbar-logo-container">
 				<a href="/"> 
 					<img style={logo} src={laCavaLogo}/>
 				</a>
@@ -48,14 +48,14 @@ const IndexPage = () => {
 		<div className="desktop-menu-container">
 			<ul>
 				<li>
-					<a href="#">Inicio</a>
+					<a href="#home">Inicio</a>
 				</li>
 				<li>
-					<a href="#">Nuestra Historia</a>
+					<a href="#history">Nuestra Historia</a>
 				</li>
 			</ul>
 		</div>
-		<div className="hero">
+		<div id="home" className="hero">
 			<div className="hero-overlay">
 				<div className="hero-headers">
 					<h1>La Cava</h1>
@@ -66,18 +66,20 @@ const IndexPage = () => {
 				</div>
 			</div>
 		</div>
-		 {/* <div>
-			<div>
+		<div id="history" className="history">
+			<div className="history-content-container">
 				<h2>Nuestra Historia</h2>
-				<div>
+				<div className="history-paragraphs">
 					<p>La Cava Especialidades nace de la pasión por los vinos españoles y por el deseo de compartir con el mercado mexicano la experiencia de la mano de nuestros mejores sommeliers que nos transmiten su conocimiento para poder degustar de los vinos más ricos y auténticos de España.</p>
 					<p>Queremos brindar la experiencia de la fusión entre nuestras mejores bodegas previamente seleccionadas en España con nuestros amantes del vino en el territorio mexicano.</p>
 					<p>Encontrar un buen vino español para cada ocasión no es materia fácil, es por eso que seleccionamos las mejores y más selectas denominaciones de España, satisfaciendo los paladares más exigentes.</p>
 					<p>Esperamos que los disfruten tanto como nosotros, ¡Brindamos con ustedes!</p>
 				</div>
+				<div className="history-image">
+					<img src={troncoImg}/>
+				</div>
 			</div>
-		</div>		 */}
-	
+		</div>
     </main>
   )
 }

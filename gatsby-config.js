@@ -32,10 +32,10 @@ module.exports = {
             name: `Open Sans`,
             file: `https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap`,
           },
-		  {
-			name: 'Gothic A1',
-			file: 'https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400&display=swap'
-		  }
+          {
+          name: 'Gothic A1',
+          file: 'https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400&display=swap'
+          }
         ],
       },
     }
