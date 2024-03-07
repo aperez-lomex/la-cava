@@ -2,10 +2,15 @@ import * as React from "react"
 import { useEffect, useState }  from 'react'
 import laCavaLogo from '../images/La_Cava_Logo.jpg'
 import troncoImg from '../images/54166ce0-db36-489b-8d69-49398adf9788.png' 
+import wineriesImage from '../images/wineries-image.png';
+
 import '../styles/app.css';
+import { graphql } from 'gatsby'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { BLOCKS } from "@contentful/rich-text-types"
 
 const pageStyles = {
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  fontFamily: "-apple-system, Roboto, sans-serif, serif", 
   margin: '-8px',
 }
 
@@ -13,7 +18,14 @@ const logo = {"margin":"0 auto","height":"80px","padding":"10px 0","display":"bl
 
 const burgerButtonAnchor = {"display":"flex","width":"40px","height":"32px","position":"relative","cursor":"pointer", "zIndex": '999999', "position": "absolute"}
 
-const IndexPage = () => {
+const contentfulRichTextOptions = {
+	renderNode: {
+		[BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p> 
+	}
+};
+const IndexPage = ({data}) => {
+	console.log(data);
+	const cavas = data.allContentfulCavas.edges;
 	const [navbarMenuOpen, setNavbarMenuOpen] = useState(false);
  
 	useEffect(() => {
@@ -53,6 +65,9 @@ const IndexPage = () => {
 				<li>
 					<a href="#history">Nuestra Historia</a>
 				</li>
+				<li>
+					<a href="#wineries">Bodegas</a>
+				</li>
 			</ul>
 		</div>
 		<div id="home" className="hero">
@@ -80,9 +95,53 @@ const IndexPage = () => {
 				</div>
 			</div>
 		</div>
+		<div id="wineries" className="wineries">
+			<div className="wineries-content-container">
+				<h2>Bodegas</h2>
+				<div className="wineries-cards-container">
+					{
+						data.allContentfulCavas.edges.map(({ node }) => (
+							
+							<div className="card" key={node.id}>
+								<img src={node.logo.file.url}/> 
+								<div className="card-text">
+									<h3>{node.name}</h3>
+									<span>{renderRichText(node.description, contentfulRichTextOptions)}</span>  
+								</div>
+								
+							</div>							
+						))
+					}
+				</div>
+				<div className="wineries-image">
+					<img src={wineriesImage}/>
+				</div>
+			</div>
+		</div>
     </main>
   )
+  
 }
+
+export const assetQuery = graphql`
+	query MyQuery {
+		allContentfulCavas {
+			edges {
+				node {
+					id
+					name
+					description {
+						raw
+					}
+					logo {
+						file {
+						url
+						}
+					}
+				}
+			}
+		}
+	}`
 
 export default IndexPage
 

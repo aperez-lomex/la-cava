@@ -10,8 +10,9 @@
 .desktop-menu-container ul {
     background: #d8e6dc;
     padding: 1em;
-    margin-left: 16px;
+    margin-left: 24px;
     list-style: none;
+    border: 1px solid #adb8b0;
 }
 
 .desktop-menu-container ul li {
@@ -31,6 +32,7 @@
     justify-content: space-between;
     width: calc(100% - 32px);
     border-bottom: 1px solid #d8e6dc;
+    z-index: 9999;
 }
 
 .navbar-cta-container {
@@ -137,7 +139,100 @@
     margin-top: -50px;
 }
 
+.wineries {
+    padding: 32px 200px;
+    background: #d8e6dc;
+}
+
+.wineries-content-container {
+    position: relative;
+
+}
+
+.wineries-content-container h2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    position: relative;
+    margin: 0;
+    text-align: center;
+}
+
+.wineries-cards-container {
+    column-count: 2;
+    gap: 20px;
+    padding: 32px 0;
+} 
+
+.wineries-image {
+    position: absolute;
+    bottom: 0;
+    left: -15%;
+}
+
+.wineries-image img {
+    width: 200px;
+}
+
+.card {
+    min-height: 750px;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 20px;
+    border: 1px solid #c2cfc6;
+    border-radius: 4px;
+}
+
+.card img {
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    padding: 32px 0 16px 0;
+    height: 100px;
+}
+
+.card-text {
+    padding: 16px 64px;
+}
+
+.card-text h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 18px;
+    margin: 0 0 16px 0;
+    text-align: center;
+}
+
+.card-text p {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: justify;
+}
+
+@media screen and (max-width: 1224px) {
+    .wineries-cards-container {
+        column-count: 1;
+        gap: 0;
+    }
+
+    .wineries-image {
+        position: absolute;
+        bottom: -15px;
+        left: -25%; 
+    }
+
+    .card {
+        min-height: 500px;
+    }
+}
+
 @media screen and (max-width: 767px) {
+
     .desktop-menu-container {
         display: none;
     }
@@ -198,9 +293,9 @@
 
     .history-image {
         position: absolute;
-        top: -10%;
+        bottom: -5%;
         z-index: 0;
-        right: -24px;
+        right: -32px;
         margin: 0;
     }
 
@@ -226,5 +321,28 @@
         z-index: 1;
         background: rgba(255, 255, 255, 0.2);
     } 
+
+    .wineries {
+        padding: 32px;
+    }
+
+    .wineries-image {
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+    }
+    
+    .wineries-image img {
+        width: 150px;
+    }
+
+    .card img {
+        padding: 32px 0 8px 0;
+    }
+
+    .card-text {
+        padding: 8px 32px 32px 32px;
+        text-align: center;
+    }
 
 }
