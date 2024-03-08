@@ -189,6 +189,11 @@
     margin-top: -50px;
 }
 
+.history-image img {
+    width: 200px;
+}
+
+
 .wineries {
     padding: 32px 200px;
     background: #d8e6dc;
@@ -211,8 +216,7 @@
 }
 
 .wineries-cards-container {
-    column-count: 2;
-    gap: 20px;
+
     padding: 32px 0;
 } 
 
@@ -226,7 +230,12 @@
     width: 200px;
 }
 
+.active-card {
+    display: block !important;
+}
+
 .card {
+    display: none;
     min-height: 750px;
     width: 100%;
     background: #fff;
@@ -264,6 +273,17 @@
     text-align: justify;
 }
 
+.card-insta-icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card-insta-icon {
+    font-size: 24px;
+    color: #E1306C    ;
+}
+
 .instagram {
     padding: 32px 200px;
     background: #fff;
@@ -282,7 +302,7 @@
 }
 
 .instagram-profile-picture-container {
-    background-image: url('../images/La_Cava_Logo.jpg');
+    background-image: url('../images/243497510_581005893322427_8384895327766333694_n.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -370,6 +390,26 @@
     text-align: center;
     cursor: pointer;
     text-decoration: none;
+}
+
+.footer {
+    padding: 32px 200px;
+    background: #2b2e2c;
+}
+
+.whatsapp-button-container {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+}
+
+.whatsapp-button-container img {
+    width: 60px;
+
+    border-radius: 50%;
+    box-shadow: 1px 1px 29px 3px rgba(0,0,0,0.75);
+    background: #fff;
+    border: 0;
 }
 
 @media screen and (max-width: 1224px) {

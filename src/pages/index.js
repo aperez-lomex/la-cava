@@ -1,8 +1,10 @@
 import * as React from "react"
 import { useEffect, useState }  from 'react'
 import laCavaLogo from '../images/La_Cava_Logo.jpg'
-import troncoImg from '../images/54166ce0-db36-489b-8d69-49398adf9788.png' 
+import troncoImg from '../images/tronco.png' 
 import wineriesImage from '../images/wineries-image.png';
+import whatsappLogo from '../images/whatsappLogo.png';
+import { CiInstagram } from "react-icons/ci";
 
 import '../styles/app.css';
 import { graphql } from 'gatsby'
@@ -25,7 +27,7 @@ const contentfulRichTextOptions = {
 };
 const IndexPage = ({data}) => {
 	console.log(data);
-	const cavas = data.allContentfulCavas.edges;
+
 	const [navbarMenuOpen, setNavbarMenuOpen] = useState(false);
  
 	// useEffect(() => {
@@ -99,19 +101,27 @@ const IndexPage = ({data}) => {
 			<div className="wineries-content-container">
 				<h2>Bodegas</h2>
 				<div className="wineries-cards-container">
-					{
-						data.allContentfulCavas.edges.map(({ node }) => (
+			{
+				data.allContentfulCavas.edges.map((edge, index) => { 
+					const bodega = edge.node
+					return (					
+					<div className={index === 0 ? 'active-card card' : 'card'} key={bodega.id}> 
+						<img src={bodega.logo.file.url}/> 
+						<div className="card-text"> 
+							<h3>{bodega.name}</h3> 
+							<p>{renderRichText(bodega.description, contentfulRichTextOptions)}</p>  
+							<div className="card-insta-icon-container">
+								<a href="#">
+									<CiInstagram className="card-insta-icon" />
+								</a>
+							</div>
+
 							
-							<div className="card" key={node.id}>
-								<img src={node.logo.file.url}/> 
-								<div className="card-text">
-									<h3>{node.name}</h3>
-									<span>{renderRichText(node.description, contentfulRichTextOptions)}</span>  
-								</div>
-								
-							</div>							
-						))
-					}
+						</div>
+					</div>	
+					)
+				})
+			}
 				</div>
 				<div className="wineries-image">
 					<img src={wineriesImage}/>
@@ -146,6 +156,14 @@ const IndexPage = ({data}) => {
 					<a className="instagram-cta" href="https://instagram.com/lacavaespecialidades" target="_blank">Ver en Instagram</a>
 				</div>
 			</div>		
+		</div>
+		<div className="footer">
+
+		</div>
+		<div className="whatsapp-button-container">
+			<a target="_blank" href="https://wa.me/5218119991129">
+				<img src={whatsappLogo} />
+			</a>
 		</div>
     </main>
   )
