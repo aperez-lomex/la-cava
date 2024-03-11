@@ -29,16 +29,14 @@ const IndexPage = ({data}) => {
 	console.log(data);
 
 	const [navbarMenuOpen, setNavbarMenuOpen] = useState(false);
- 
-	// useEffect(() => {
-	// 	const handleResize = () => {		  
-	// 	  if(window.innerWidth >= 768) setNavbarMenuOpen(false);
-	// 	};
-	// 	window.addEventListener('resize', handleResize);
-	// 	return () => {
-	// 	  window.removeEventListener('resize', handleResize);
-	// 	};
-	//   }, []);
+
+	const handleOnClickContacto = () => {
+		const element = document?.querySelector("#contact");
+		const offsetTop = 100;
+	  
+		const total = element.offsetTop - offsetTop;
+		window.scrollTo({ top: total, behavior: 'smooth' });
+	}
 
   return (
     <main style={pageStyles}> 
@@ -55,7 +53,7 @@ const IndexPage = ({data}) => {
 				</a>
 			</div> 
 			<div className="navbar-cta-container">
-				<a className="navbar-cta">Contacto</a>
+				<a className="navbar-cta" onClick={handleOnClickContacto}>Contacto</a>
 			</div>
 		</div>
 		<div className={navbarMenuOpen ? 'mobile-navbar-menu show-navbar-menu' : 'mobile-navbar-menu'}></div>
@@ -109,7 +107,7 @@ const IndexPage = ({data}) => {
 						<img src={bodega.logo.file.url}/> 
 						<div className="card-text"> 
 							<h3>{bodega.name}</h3> 
-							<p>{renderRichText(bodega.description, contentfulRichTextOptions)}</p>
+							<div>{renderRichText(bodega.description, contentfulRichTextOptions)}</div>
 							<h4>Redes Sociales</h4>
 							<div className="card-insta-icon-container">							
 								<a href={bodega.instagramUrl}>
@@ -146,7 +144,7 @@ const IndexPage = ({data}) => {
 					{
 						data.allInstaNode.edges.map(({ node }) => (
 							
-								<img src={node.localFile.childImageSharp.fixed.src}/>  
+								<img key={node.id} src={node.localFile.childImageSharp.fixed.src}/>  
 															
 						))
 					}
@@ -156,24 +154,32 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>		
 		</div>
-		<div className="contact">
+		<div id="contact" className="contact">
 			<div className="contact-content-container">
-
-			<form name="contact" method="post" data-netlify="true">
-  				<input type="hidden" name="form-name" value="contact" />		
-  					<p>
-						<label>Your Name: <input type="text" name="name" /></label>
-					</p>
-					<p>
-						<label>Your Email: <input type="email" name="email" /></label>
-					</p>
-					<p>
-						<label>Message: <textarea name="message"></textarea></label>
-					</p>
-					<p>
-						<button type="submit">Send</button>
-					</p>
-				</form>
+				<div className="contact-image">
+					<div className="contact-image-overlay"></div>
+				</div>
+				<div className="contact-form-container">
+					<h2>Contacto</h2>
+					<form name="contact" method="post" data-netlify="true">
+						<input type="hidden" name="form-name" value="contact" />		
+						<div className="form-input-container">
+							<label>Nombre</label>
+							<input type="text" name="name" />
+						</div>
+						<div className="form-input-container">
+							<label>E-mail</label>
+							<input type="email" name="email" />
+						</div>
+						<div className="form-input-container">
+							<label>Mensaje</label>
+							<textarea rows="8" name="message"></textarea>
+						</div>
+						<div className="form-input-container">
+							<button type="submit">Enviar</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 		<div className="footer">
@@ -229,6 +235,7 @@ export const assetQuery = graphql`
 		allInstaNode(sort: {timestamp: DESC}, limit: 9) {
 			edges {
 			  node {
+				id
 				thumbnails {
 				  src
 				}

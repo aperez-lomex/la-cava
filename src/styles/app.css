@@ -401,14 +401,88 @@
 }
 
 .contact {
-    padding: 32px 200px;
     background: #d8e6dc;
 }
 
 .contact-content-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+}
+
+.contact-image {
+    background: url('../images/contacto-image.jpeg');
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-image-overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-form-container {
+    min-height: 400px;
+    padding: 32px 5%;
+    width: calc(50% - 10%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-form-container h2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.form-input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto 12px auto;
+}
+
+.form-input-container label {
+    margin-bottom: 4px;
+    text-align: left;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.form-input-container input {
+    padding: 4px;
+}
+
+.form-input-container textarea {
+    resize: none;
+}
+
+.form-input-container button {
+    padding: 10px;
+    width: fit-content;
+    margin: 0 auto;
+    background: #97a19a;
+    color: #fff;
+    border: 0;
+    font-size: 16px;
 }
 
 .footer {
@@ -563,6 +637,20 @@
 
     .instagram-posts-container img {
         margin-bottom: 2px;
+    }
+
+    .contact-content-container {
+        flex-direction: column;
+    }
+
+    .contact-image {
+        order: 2;
+        height: 400px;
+        width: 100%;
+    }
+
+    .contact-form-container {
+        width: calc(100% - 10%);
     }
 
     .footer {
