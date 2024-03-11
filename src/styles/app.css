@@ -410,7 +410,7 @@
 }
 
 .contact-image {
-    background: url('../images/contacto-image.jpeg');
+    background: url('../images/contacto-image.jpeg'); 
     width: 50%;
     background-repeat: no-repeat;
     background-size: cover;
