@@ -156,6 +156,21 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>		
 		</div>
+		<div className="contact">
+			<div className="contact-content-container">
+			<form name="contact" netlify>
+				<p>
+					<label>Name <input type="text" name="name" /></label>
+				</p>
+				<p>
+					<label>Email <input type="email" name="email" /></label>
+				</p>
+				<p>
+					<button type="submit">Send</button>
+				</p>
+				</form>
+			</div>
+		</div>
 		<div className="footer">
 			<div className="footer-content-container">
 					<div className="footer-content-info-container">
