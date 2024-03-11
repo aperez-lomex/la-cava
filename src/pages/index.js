@@ -158,8 +158,15 @@ const IndexPage = ({data}) => {
 		</div>
 		<div className="contact">
 			<div className="contact-content-container">
-				<form name="contact" method="POST" netlify>
-				<input type="hidden" name="form-name" value="contactForm" action="/historia" />
+				<form name="contact" netlify hidden>
+						<label>Your Name: <input type="text" name="name" /></label>
+						<label>Your Email: <input type="email" name="email" /></label>
+						<label>Message: <textarea name="message"></textarea></label>
+						<button type="submit">Send</button>
+				</form>
+
+				<form name="contact" method="POST">
+					<input type="hidden" name="form-name" value="contact"/>
 					<p>
 						<label>Your Name: <input type="text" name="name" /></label>
 					</p>
