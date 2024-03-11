@@ -236,7 +236,7 @@
 
 .card {
     display: none;
-    min-height: 750px;
+    /*min-height: 750px;*/
     width: 100%;
     background: #fff;
     margin-bottom: 20px;
@@ -273,6 +273,16 @@
     text-align: justify;
 }
 
+.card-text h4 {
+    margin: 0 0 8px 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-align: center;
+}
+
 .card-insta-icon-container {
     display: flex;
     flex-direction: row;
@@ -280,16 +290,14 @@
 }
 
 .card-insta-icon {
-    font-size: 24px;
-    color: #E1306C    ;
+    font-size: 28px;
+    color: #E1306C;
 }
 
 .instagram {
     padding: 32px 200px;
     background: #fff;
 }
-
-.instagram-content-container {}
 
 .instagram-profile-header {
     display: flex;
@@ -369,7 +377,7 @@
 
 }
 
-.instagram-posts-container img{
+.instagram-posts-container img {
     margin: 0 auto;
     width: 100%;
     display: block;
@@ -397,15 +405,57 @@
     background: #2b2e2c;
 }
 
+.footer-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-content-info-container {
+    text-align: center;
+    padding: 0 16px;
+}
+
+.footer-content-info-container h4 {
+    margin: 0 0 8px 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: #c2cfc6;
+}
+
+.footer-content-info-container p {
+    margin: 0 0 4px 0;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #d8e6dc;
+}
+
+.footer-content-info-container a {
+    color: #d8e6dc;
+    text-decoration: none;
+}
+
+.footer-content-insta-icon-container { 
+    font-size: 24px;
+}
+
+.footer-content-insta-icon a {
+    color: #d8e6dc;  
+}
+
 .whatsapp-button-container {
     position: fixed;
     bottom: 16px;
     right: 16px;
+    z-index: 99999999;
 }
 
 .whatsapp-button-container img {
     width: 60px;
-
     border-radius: 50%;
     box-shadow: 1px 1px 29px 3px rgba(0,0,0,0.75);
     background: #fff;
@@ -502,6 +552,30 @@
 
     .instagram-posts-container img {
         margin-bottom: 2px;
+    }
+
+    .footer {
+        padding: 32px;
+    }
+
+    .footer-content-container {
+        flex-direction: column;
+    }
+
+    .footer-content-info-container {
+        margin-bottom: 12px;
+    }
+
+    .footer-content-info-container h4 {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+    .footer-content-info-container p {
+        font-size: 12px;
+    }
+
+    .footer-content-info-container:last-child {
+        margin: 0;
     }
 
 }

@@ -103,23 +103,22 @@ const IndexPage = ({data}) => {
 				<div className="wineries-cards-container">
 			{
 				data.allContentfulCavas.edges.map((edge, index) => { 
-					const bodega = edge.node
+					const bodega = edge.node;
 					return (					
 					<div className={index === 0 ? 'active-card card' : 'card'} key={bodega.id}> 
 						<img src={bodega.logo.file.url}/> 
 						<div className="card-text"> 
 							<h3>{bodega.name}</h3> 
-							<p>{renderRichText(bodega.description, contentfulRichTextOptions)}</p>  
-							<div className="card-insta-icon-container">
-								<a href="#">
+							<p>{renderRichText(bodega.description, contentfulRichTextOptions)}</p>
+							<h4>Redes Sociales</h4>
+							<div className="card-insta-icon-container">							
+								<a href={bodega.instagramUrl}>
 									<CiInstagram className="card-insta-icon" />
 								</a>
 							</div>
-
-							
 						</div>
 					</div>	
-					)
+					);
 				})
 			}
 				</div>
@@ -158,7 +157,25 @@ const IndexPage = ({data}) => {
 			</div>		
 		</div>
 		<div className="footer">
-
+			<div className="footer-content-container">
+					<div className="footer-content-info-container">
+						<h4>Redes Sociales</h4>
+						<div className="footer-content-insta-icon-container">
+							<a href="https://instagram.com/lacavaespecialidades" target="_blank">
+								<CiInstagram className="footer-content-insta-icon" />
+							</a>
+						</div>
+					</div>
+					<div className="footer-content-info-container">
+						<h4>Ubicación</h4>
+						<p>San Pedro Garza García, NL</p>
+					</div>
+					<div className="footer-content-info-container">
+						<h4>Teléfonos</h4>
+						<p><a href="tel:8150007579p8961">8150007579 Ext 8961</a></p>
+						<p><a href="tel:8150007581p8960">8150007581 Ext 8960</a></p>
+					</div>
+			</div>
 		</div>
 		<div className="whatsapp-button-container">
 			<a target="_blank" href="https://wa.me/5218119991129">
@@ -185,6 +202,7 @@ export const assetQuery = graphql`
 						url
 						}
 					}
+					instagramUrl 
 				}
 			}
 		},
