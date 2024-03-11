@@ -159,7 +159,6 @@ const IndexPage = ({data}) => {
 		<div className="contact">
 			<div className="contact-content-container">
 				<form name="contact" method="POST" netlify>
-					<input type="hidden" name="form-name" value="contact"></input>
 					<p>
 						<label>Your Name: <input type="text" name="name" /></label>
 					</p>
@@ -183,7 +182,7 @@ const IndexPage = ({data}) => {
 							<a href="https://instagram.com/lacavaespecialidades" target="_blank">
 								<CiInstagram className="footer-content-insta-icon" />
 							</a>
-						</div>
+						</div> 
 					</div>
 					<div className="footer-content-info-container">
 						<h4>Ubicación</h4>
