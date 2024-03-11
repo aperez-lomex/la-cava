@@ -158,16 +158,10 @@ const IndexPage = ({data}) => {
 		</div>
 		<div className="contact">
 			<div className="contact-content-container">
-				<form name="contact" netlify hidden>
-						<label>Your Name: <input type="text" name="name" /></label>
-						<label>Your Email: <input type="email" name="email" /></label>
-						<label>Message: <textarea name="message"></textarea></label>
-						<button type="submit">Send</button>
-				</form>
 
-				<form name="contact" method="POST">
-					<input type="hidden" name="form-name" value="contact"/>
-					<p>
+			<form name="contact" method="post" data-netlify="true">
+  				<input type="hidden" name="form-name" value="contact" />		
+  					<p>
 						<label>Your Name: <input type="text" name="name" /></label>
 					</p>
 					<p>
@@ -240,7 +234,7 @@ export const assetQuery = graphql`
 				}
 				localFile {
 					childImageSharp {
-					  fixed(width: 600, height: 600) {
+					  fixed(width: 500, height: 500) {
 						...GatsbyImageSharpFixed
 					  }
 					}
