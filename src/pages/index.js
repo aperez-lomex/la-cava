@@ -5,6 +5,8 @@ import troncoImg from '../images/tronco.png'
 import wineriesImage from '../images/wineries-image.png';
 import whatsappLogo from '../images/whatsappLogo.png';
 import { CiInstagram } from "react-icons/ci";
+import { CiCircleChevRight } from "react-icons/ci";
+import { CiCircleChevLeft } from "react-icons/ci";
 
 import '../styles/app.css';
 import { graphql } from 'gatsby'
@@ -17,7 +19,6 @@ const pageStyles = {
 }
 
 const logo = {"margin":"0 auto","height":"80px","padding":"10px 0","display":"block"}
-
 const burgerButtonAnchor = {"display":"flex","width":"40px","height":"32px","position":"relative","cursor":"pointer", "zIndex": '999999', "position": "absolute"}
 
 const contentfulRichTextOptions = {
@@ -25,8 +26,47 @@ const contentfulRichTextOptions = {
 		[BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p> 
 	}
 };
+
 const IndexPage = ({data}) => {
 	console.log(data);
+	const b = data.allContentfulCavas.edges.map((edge, i) => { 
+		let bodega = edge.node;
+	
+		return Object.assign({}, bodega, { activeBodega : i === 0 ? true : false })
+	});
+	const [index, setIndex] = useState(0); 
+	const [bodegas, setBodegas] = useState(b);
+	console.log(bodegas);
+
+	const handleLeft = () => {
+		if(index > 0) {
+			
+			bodegas[index].activeBodega = false;
+			let i = index-1;
+			setIndex(i);
+			bodegas[i].activeBodega = true; 
+			setBodegas([...bodegas]);
+
+		}
+	}
+   
+   const handleRight = () => {
+		if(index < bodegas.length-1) {
+			// let el = document.querySelectorAll('.card');
+			// el.forEach((element, i) => {
+			// 	el.style.display('none');
+			// 	if(i === index ) el.style.display('block');
+			// });
+			console.log(index);
+			bodegas[index].activeBodega = false;
+			let i = index+1;
+			setIndex(i);
+			bodegas[i].activeBodega = true; 
+			setBodegas([...bodegas]);
+
+		}
+   }
+   
 
 	const [navbarMenuOpen, setNavbarMenuOpen] = useState(false);
 
@@ -98,27 +138,34 @@ const IndexPage = ({data}) => {
 		<div id="wineries" className="wineries">
 			<div className="wineries-content-container">
 				<h2>Bodegas</h2>
-				<div className="wineries-cards-container">
-			{
-				data.allContentfulCavas.edges.map((edge, index) => { 
-					const bodega = edge.node;
-					return (					
-					<div className={index === 0 ? 'active-card card' : 'card'} key={bodega.id}> 
-						<img src={bodega.logo.file.url}/> 
-						<div className="card-text"> 
-							<h3>{bodega.name}</h3> 
-							<div>{renderRichText(bodega.description, contentfulRichTextOptions)}</div>
-							<h4>Redes Sociales</h4>
-							<div className="card-insta-icon-container">							
-								<a href={bodega.instagramUrl}>
-									<CiInstagram className="card-insta-icon" />
-								</a>
-							</div>
-						</div>
-					</div>	
-					);
-				})
-			}
+				<div className="wineries-carousel-container">
+					<div className="wineries-carousel-arrows">
+						<button onClick={handleLeft} ><CiCircleChevLeft/></button>
+					</div>
+					<div className="wineries-cards-container">
+						{
+							bodegas.map((bodega) => { 
+								return (					
+								<div className={bodega.activeBodega ? 'active-card card' : 'inactive-card card'} key={bodega.id} > 
+									<img src={bodega.logo.file.url}/> 
+									<div className="card-text"> 
+										<h3>{bodega.name}</h3> 
+										<div>{renderRichText(bodega.description, contentfulRichTextOptions)}</div>
+										<h4>Redes Sociales</h4>
+										<div className="card-insta-icon-container">							
+											<a href={bodega.instagramUrl}>
+												<CiInstagram className="card-insta-icon" />
+											</a>
+										</div>
+									</div>
+								</div>	
+								);
+							})
+						}
+					</div>
+					<div className="wineries-carousel-arrows">
+						<button onClick={handleRight}><CiCircleChevRight/></button>
+					</div>
 				</div>
 				<div className="wineries-image">
 					<img src={wineriesImage}/>

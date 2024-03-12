@@ -215,6 +215,25 @@
     text-align: center;
 }
 
+.wineries-carousel-container {
+    display: flex;
+    position: relative;
+}
+
+.wineries-carousel-arrows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 8px;
+}
+
+.wineries-carousel-arrows button {
+    border: none;
+    background: #d8e6dc;
+    font-size: 24px;
+    color: #2b2e2c;
+}
+
 .wineries-cards-container {
 
     padding: 32px 0;
@@ -230,12 +249,15 @@
     width: 200px;
 }
 
+.inactive-card {
+    display:none;
+}
+
 .active-card {
-    display: block !important;
+    display: block;
 }
 
 .card {
-    display: none;
     /*min-height: 750px;*/
     width: 100%;
     background: #fff;
@@ -296,7 +318,7 @@
 
 .instagram {
     padding: 32px 200px;
-    background: #fff;
+    background: #000;
 }
 
 .instagram-profile-header {
@@ -352,6 +374,7 @@
     font-family: "Gothic A1", sans-serif;
     font-weight: 300;
     font-size: 14px;
+    color: #fff;
 }
 
 .instagram-content-container h2 {
@@ -361,6 +384,7 @@
     letter-spacing: 2px;
     font-size: 24px;
     text-align: center;
+    color: #c2cfc6;
 }
 
 .instagram-content-container h3 {
@@ -368,6 +392,7 @@
     font-weight: 300;
     font-size: 20px;
     text-align: center;
+    color: #c2cfc6;
 }
 
 .instagram-posts-container {
@@ -605,7 +630,7 @@
     } 
 
     .wineries {
-        padding: 32px;
+        padding: 32px 8px;
     }
 
     .wineries-image {
