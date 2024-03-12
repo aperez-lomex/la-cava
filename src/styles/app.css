@@ -366,7 +366,7 @@
 
 .instagram-profile-info h4 a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 
 .instagram-profile-info span, 
@@ -592,6 +592,7 @@
 @media screen and (max-width: 767px) {
     .hero {
         height: 50vh;
+        background-attachment:unset;
     }
 
     .history {
@@ -631,6 +632,29 @@
 
     .wineries {
         padding: 32px 8px;
+    }
+
+    .wineries-carousel-arrows {
+        display: none;
+    }
+
+    .wineries-cards-container {
+        padding: 32px 16px;
+        overflow-y: scroll;
+        display: flex; 
+    }
+
+    .card {
+        display: block;
+        margin-right: 16px;
+    }
+
+    .card:last-child {
+        margin-right: 0;
+    }
+
+    .card-text {
+        width: 260px;
     }
 
     .wineries-image {
