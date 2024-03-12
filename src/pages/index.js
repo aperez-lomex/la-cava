@@ -201,6 +201,23 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>		
 		</div>
+		<div id="clients" className="clients">
+			<div className="clients-content-container">
+				<h2>Nuestros Clientes</h2>
+				<div className="clients-logos-container">
+					
+					{
+						data.allContentfulClientes.edges.map(({node}) => {
+							return (
+								<div key={node.id} className="clients-logo-image-container">
+									<img src={node.logo.file.url} /> 
+								</div>
+							)
+						})
+					}
+				</div>
+			</div>
+		</div>
 		<div id="contact" className="contact">
 			<div className="contact-content-container">
 				<div className="contact-image">
@@ -295,7 +312,20 @@ export const assetQuery = graphql`
 				}
 			  }
 			}
-		  }
+		},
+		allContentfulClientes {
+			edges {
+			  node {
+				id
+				name
+				logo {
+				  file {
+					url
+				  }
+				}
+			  }
+			}
+		},
 
 	}`
 

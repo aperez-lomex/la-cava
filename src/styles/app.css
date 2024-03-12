@@ -160,7 +160,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 32px 200px;
+    padding: 5% 15%;
 }
 
 .history h2 {
@@ -195,7 +195,7 @@
 
 
 .wineries {
-    padding: 32px 200px;
+    padding: 5% 15%;
     background: #d8e6dc;
 }
 
@@ -317,7 +317,7 @@
 }
 
 .instagram {
-    padding: 32px 200px;
+    padding: 5% 15%;
     background: #000;
 }
 
@@ -425,6 +425,41 @@
     text-decoration: none;
 }
 
+.clients {
+    padding: 5% 10%;
+}
+
+.clients-content-container h2 {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    margin: 5% 0;
+}
+
+.clients-logos-container {
+    margin: 5% 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.clients-logo-image-container {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2.5%;
+}
+
+.clients-logo-image-container img {
+    height: 75px;
+    width: auto;
+}
+
 .contact {
     background: #d8e6dc;
 }
@@ -511,7 +546,7 @@
 }
 
 .footer {
-    padding: 32px 200px;
+    padding: 5% 15%;
     background: #2b2e2c;
 }
 
@@ -586,6 +621,10 @@
 
     .card {
         min-height: 500px;
+    }
+
+    .clients-logo-image-container {
+        width: 33%;
     }
 }
 
@@ -686,6 +725,10 @@
 
     .instagram-posts-container img {
         margin-bottom: 2px;
+    }
+
+    .clients-logo-image-container {
+        width: 50%;
     }
 
     .contact-content-container {
