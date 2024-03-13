@@ -966,6 +966,37 @@
         width: calc(100% - 10%);
     }
 
+    .wine-detail-page-container {
+        padding: calc(5% + 100px) 5% 5% 5%;
+    }
+
+    .wine-detail-content-contaier {
+        flex-direction: column;
+    }
+
+    .wine-detail-content-image-container,
+    .wine-detail-content-text-container {
+        width: 100%;
+    }
+
+    .wine-detail-card {
+        padding: 0;
+    }
+
+
+    .wine-detail-header {
+        padding: 5% 0;
+    }
+
+    .wine-detail-description,
+    .wine-detail-attirbutes-container {
+        padding: 2.5% 5%;
+    }
+
+    .wine-detail-attirbute-container {
+        width: 100%;
+    }
+
     .footer {
         padding: 32px;
     }
@@ -989,5 +1020,7 @@
     .footer-content-info-container:last-child {
         margin: 0;
     }
+
+
 
 }
