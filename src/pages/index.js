@@ -1,9 +1,7 @@
 import * as React from "react"
 import { useEffect, useState, createPage }  from 'react' 
-import laCavaLogo from '../images/La_Cava_Logo.jpg'
 import troncoImg from '../images/tronco.png' 
 import wineriesImage from '../images/wineries-image.png';
-import whatsappLogo from '../images/whatsappLogo.png';
 
 import { CiInstagram } from "react-icons/ci";
 import { CiCircleChevRight } from "react-icons/ci";
@@ -13,14 +11,13 @@ import '../styles/app.css';
 import { graphql } from 'gatsby'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { BLOCKS } from "@contentful/rich-text-types"
+import Footer from "../components/footer";
+import Navbar from "../components/navbar";
 
-const pageStyles = {
+const mainContainerStyles = {
   fontFamily: "-apple-system, Roboto, sans-serif, serif", 
   margin: '-8px',
 }
-
-const logo = {"margin":"0 auto","height":"80px","padding":"10px 0","display":"block"}
-const burgerButtonAnchor = {"display":"flex","width":"40px","height":"32px","position":"relative","cursor":"pointer", "zIndex": '999999', "position": "absolute"}
 
 const contentfulRichTextOptions = {
 	renderNode: {
@@ -92,36 +89,10 @@ const IndexPage = ({data}) => {
 		newActiveTab.classList.add('winery-active-tab');
 		setSelectedTabWines(classifiedWines[id]);
    	}
-   
-	const [navbarMenuOpen, setNavbarMenuOpen] = useState(false);
-
-	const handleOnClickContacto = () => {
-		const element = document?.querySelector("#contact");
-		const offsetTop = 100;
-	  
-		const total = element.offsetTop - offsetTop;
-		window.scrollTo({ top: total, behavior: 'smooth' });
-	}
 
   return (
-    <main style={pageStyles}> 
-		<div className="navbar-container">
-			<div className='navbar-button-container'>
-				<a style={burgerButtonAnchor} onClick={() => setNavbarMenuOpen((prev) => !prev)}>
-					<span className={navbarMenuOpen ? 'burger-button-line-top display-close-navbar-icon-line-top' : 'burger-button-line-top'}></span> 
-					<span className={navbarMenuOpen ? 'burger-button-line-bottom display-close-navbar-icon-line-bottom' : 'burger-button-line-bottom'}></span>
-				</a>
-			</div> 
-			<div className="navbar-logo-container">
-				<a href="/"> 
-					<img style={logo} src={laCavaLogo}/>
-				</a>
-			</div> 
-			<div className="navbar-cta-container">
-				<a className="navbar-cta" onClick={handleOnClickContacto}>Contacto</a>
-			</div>
-		</div>
-		<div className={navbarMenuOpen ? 'mobile-navbar-menu show-navbar-menu' : 'mobile-navbar-menu'}></div>
+    <main style={mainContainerStyles}> 
+	<Navbar></Navbar>
 		<div id="home" className="hero">
 			<div className="hero-overlay">
 				<div className="hero-headers">
@@ -302,32 +273,7 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>
 		</div>
-		<div className="footer">
-			<div className="footer-content-container">
-					<div className="footer-content-info-container">
-						<h4>Redes Sociales</h4>
-						<div className="footer-content-insta-icon-container">
-							<a href="https://instagram.com/lacavaespecialidades" target="_blank">
-								<CiInstagram className="footer-content-insta-icon" />
-							</a>
-						</div> 
-					</div>
-					<div className="footer-content-info-container">
-						<h4>Ubicación</h4>
-						<p>San Pedro Garza García, NL</p>
-					</div>
-					<div className="footer-content-info-container">
-						<h4>Teléfonos</h4>
-						<p><a href="tel:8150007579p8961">8150007579 Ext 8961</a></p>
-						<p><a href="tel:8150007581p8960">8150007581 Ext 8960</a></p>
-					</div>
-			</div>
-		</div>
-		<div className="whatsapp-button-container">
-			<a target="_blank" href="https://wa.me/5218119991129">
-				<img src={whatsappLogo} />
-			</a>
-		</div>
+		<Footer></Footer>
     </main>
   )
   

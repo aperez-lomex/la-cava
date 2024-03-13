@@ -8,9 +8,43 @@ exports.createPages = ({ graphql, actions }) => {
             allContentfulVinos {
 			    edges {
 			        node {
-				        slug
+				        alcohol
+						aromas {
+						raw
+						}
+						coupage {
+						raw
+						}
+						crianza {
+						raw
+						}
+						description {
+						raw
+						}
+						gusto {
+						raw
+						}
+						id
+						image {
+						file {
+							url
+						}
+						}
+						name
+						region
+						vinedos {
+						raw
+						}
+						vista {
+						raw
+						}
+						bodega {
+						id
+						name
+						}
+						slug
 			        }
-                }
+            }
 		    },
         }
       `).then(result => {
@@ -21,6 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
                 component: path.resolve(`./src/templates/wine.js`),
                 context: {
                     slug: node.slug,
+                    data: node
                 },
             });
         });

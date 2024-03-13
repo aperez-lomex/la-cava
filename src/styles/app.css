@@ -1,3 +1,7 @@
+.main-container-styles { 
+    margin: '-8px'; 
+}
+
 .desktop-menu-container {
     position: fixed;
     top: 0;
