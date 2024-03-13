@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useEffect, useState }  from 'react'
+import { useEffect, useState, createPage }  from 'react' 
 import laCavaLogo from '../images/La_Cava_Logo.jpg'
 import troncoImg from '../images/tronco.png' 
 import wineriesImage from '../images/wineries-image.png';
@@ -39,6 +39,7 @@ const IndexPage = ({data}) => {
 	const [bodegas, setBodegas] = useState(b);
 
 	const wines = data.allContentfulVinos.edges;
+
 	const winesPerinet = wines.reduce((filtered, wine) => { 
 		if(wine.node.bodega.name === 'Perinet') filtered.push(wine) 
 		return filtered;
@@ -215,7 +216,7 @@ const IndexPage = ({data}) => {
 											<div className="wines-list-item-info-container">
 												<h4>{wine.node.name}</h4>
 												<span>{wine.node.region}</span>
-												{/* <a href="#">Ver más</a> */}
+												<a href={wine.node.slug}>Ver más</a>
 											</div>
 										</div>										
 									);
@@ -405,6 +406,7 @@ export const assetQuery = graphql`
 				  id
 				  name
 				}
+				slug
 			  }
 			}
 		},
