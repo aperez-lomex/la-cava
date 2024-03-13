@@ -43,6 +43,9 @@ exports.createPages = ({ graphql, actions }) => {
 						name
 						}
 						slug
+						fermentacion {
+							raw
+						} 
 			        }
             }
 		    },

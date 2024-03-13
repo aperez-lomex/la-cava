@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useEffect, useState, createPage }  from 'react' 
+import { useState }  from 'react' 
 import troncoImg from '../images/tronco.png' 
 import wineriesImage from '../images/wineries-image.png';
 
@@ -192,8 +192,7 @@ const IndexPage = ({data}) => {
 										</div>										
 									);
 								})
-							}
-							
+							}							
 						</div>
 					</div>
 				</div>
@@ -353,6 +352,9 @@ export const assetQuery = graphql`
 				  name
 				}
 				slug
+				fermentacion {
+					raw
+				} 
 			  }
 			}
 		},

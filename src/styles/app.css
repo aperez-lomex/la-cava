@@ -165,7 +165,6 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
     padding: 5% 15%;
 }
 
@@ -725,6 +724,96 @@
     box-shadow: 1px 1px 29px 3px rgba(0,0,0,0.75);
     background: #fff;
     border: 0;
+}
+
+.wine-detail-page-container {
+    background: #d8e6dc;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: calc(5% + 100px) 15% 5% 15%;
+}
+
+.wine-detail-card {
+    padding: 5%;
+}
+
+.wine-detail-header {
+    text-align: center;
+    margin: 0 0 2.5% 0;
+
+}
+
+.wine-detail-header h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 32px;
+    margin: 0 0 1% 0;
+}
+
+.wine-detail-header h2 {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    margin: 0 0 1% 0;
+}
+
+.wine-detail-content-contaier {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.wine-detail-content-image-container {
+    width: 40%;
+    display: flex;
+}
+
+.wine-detail-content-image-container img {
+    width: auto;
+    height: 500px;
+    margin: auto;
+    padding: 0;
+}
+
+.wine-detail-content-text-container {
+    width: 60%;
+    text-align: justify;
+    padding: 5% 0;
+}
+
+.wine-detail-description span,
+.wine-detail-attirbute-container span {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.wine-detail-description p,
+.wine-detail-attirbute-container p {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    margin: 4px 0 0 0;
+    text-align: justify;
+}
+
+.wine-detail-description {
+    margin-bottom: 2.5%;
+}
+
+.wine-detail-attirbutes-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.wine-detail-attirbute-container {
+    width: 75%;
+    margin-bottom: 2.5%;
 }
 
 @media screen and (max-width: 1224px) {
