@@ -4,6 +4,7 @@ import laCavaLogo from '../images/La_Cava_Logo.jpg'
 import troncoImg from '../images/tronco.png' 
 import wineriesImage from '../images/wineries-image.png';
 import whatsappLogo from '../images/whatsappLogo.png';
+
 import { CiInstagram } from "react-icons/ci";
 import { CiCircleChevRight } from "react-icons/ci";
 import { CiCircleChevLeft } from "react-icons/ci";
@@ -36,38 +37,61 @@ const IndexPage = ({data}) => {
 	});
 	const [index, setIndex] = useState(0); 
 	const [bodegas, setBodegas] = useState(b);
-	console.log(bodegas);
+
+	const wines = data.allContentfulVinos.edges;
+	const winesPerinet = wines.reduce((filtered, wine) => { 
+		if(wine.node.bodega.name === 'Perinet') filtered.push(wine) 
+		return filtered;
+	}, []);
+	const winesOtazu = wines.reduce((filtered, wine) => { 
+		if(wine.node.bodega.name === 'Otazu') filtered.push(wine) 
+		return filtered;
+	}, []);
+	const winesHerasCordon = wines.reduce((filtered, wine) => { 
+		if(wine.node.bodega.name === 'Heras Cordón') filtered.push(wine) 
+		return filtered;
+	}, []);
+	const winesBosquesDeMatasnos = wines.reduce((filtered, wine) => { 
+		if(wine.node.bodega.name === 'Bosque de Matasnos') filtered.push(wine) 
+		return filtered;
+	}, []);
+	const classifiedWines = {
+		"Perinet": winesPerinet,
+		"Otazu": winesOtazu,
+		"HerasCordón": winesHerasCordon,
+		"BosquedeMatasnos": winesBosquesDeMatasnos
+	}
 
 	const handleLeft = () => {
 		if(index > 0) {
-			
 			bodegas[index].activeBodega = false;
 			let i = index-1;
 			setIndex(i);
 			bodegas[i].activeBodega = true; 
 			setBodegas([...bodegas]);
-
 		}
 	}
    
    const handleRight = () => {
 		if(index < bodegas.length-1) {
-			// let el = document.querySelectorAll('.card');
-			// el.forEach((element, i) => {
-			// 	el.style.display('none');
-			// 	if(i === index ) el.style.display('block');
-			// });
-			console.log(index);
 			bodegas[index].activeBodega = false;
 			let i = index+1;
 			setIndex(i);
 			bodegas[i].activeBodega = true; 
 			setBodegas([...bodegas]);
-
 		}
    }
-   
 
+   const [selectedTabWines, setSelectedTabWines] = useState(winesHerasCordon);
+
+   	const handleWineryTabClick = (id) => {
+		const currentActiveTab = document.querySelector('.winery-active-tab')
+		currentActiveTab.classList.remove('winery-active-tab'); 
+		const newActiveTab = document.querySelector("#"+id);
+		newActiveTab.classList.add('winery-active-tab');
+		setSelectedTabWines(classifiedWines[id]);
+   	}
+   
 	const [navbarMenuOpen, setNavbarMenuOpen] = useState(false);
 
 	const handleOnClickContacto = () => {
@@ -97,19 +121,6 @@ const IndexPage = ({data}) => {
 			</div>
 		</div>
 		<div className={navbarMenuOpen ? 'mobile-navbar-menu show-navbar-menu' : 'mobile-navbar-menu'}></div>
-		{/* <div className="desktop-menu-container">
-			<ul>
-				<li>
-					<a href="#home">Inicio</a>
-				</li>
-				<li>
-					<a href="#history">Nuestra Historia</a>
-				</li>
-				<li>
-					<a href="#wineries">Bodegas</a>
-				</li>
-			</ul>
-		</div> */}
 		<div id="home" className="hero">
 			<div className="hero-overlay">
 				<div className="hero-headers">
@@ -169,6 +180,50 @@ const IndexPage = ({data}) => {
 				</div>
 				<div className="wineries-image">
 					<img src={wineriesImage}/>
+				</div>
+			</div>
+		</div>
+		<div id="wines" className="wines">
+			<div className="wines-content-container">
+				<h2>Vinos</h2>
+				<div className="card wines-card">
+					<div className="wineries-tabs-container">
+						{
+							bodegas.map((bodega, index) => {  
+								return (
+									<div key={bodega.id} id={bodega.name.replace(/\s/g, '')} className={index === 0 ? 'winery-active-tab winery-tab' : 'winery-tab'} onClick={() => handleWineryTabClick(bodega.name.replace(/\s/g, ''))} >
+										<div  className="winery-tab-image-container">
+											<img src={bodega.logo.file.url}/> 
+										</div>
+										<div className="winery-tab-header"> 
+											<h3 >{bodega.name}</h3> 
+										</div>
+									</div> 
+								);
+							})
+						}					
+					</div>
+					<div className="wineries-tabs-content-container">
+						<div className="wines-list-container">
+							{
+								selectedTabWines.map(wine => {
+									return (
+										<div key={wine.node.id} className="wines-list-item">
+											<div className="wines-list-item-image-container">
+												<img src={wine.node.image.file.url} />
+											</div>
+											<div className="wines-list-item-info-container">
+												<h4>{wine.node.name}</h4>
+												<span>{wine.node.region}</span>
+												{/* <a href="#">Ver más</a> */}
+											</div>
+										</div>										
+									);
+								})
+							}
+							
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -309,6 +364,46 @@ export const assetQuery = graphql`
 						...GatsbyImageSharpFixed
 					  }
 					}
+				}
+			  }
+			}
+		},
+		allContentfulVinos {
+			edges {
+			  node {
+				alcohol
+				aromas {
+				  raw
+				}
+				coupage {
+				  raw
+				}
+				crianza {
+				  raw
+				}
+				description {
+				  raw
+				}
+				gusto {
+				  raw
+				}
+				id
+				image {
+				  file {
+					url
+				  }
+				}
+				name
+				region
+				vinedos {
+				  raw
+				}
+				vista {
+				  raw
+				}
+				bodega {
+				  id
+				  name
 				}
 			  }
 			}

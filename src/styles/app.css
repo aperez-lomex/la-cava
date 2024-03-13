@@ -160,6 +160,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+
     padding: 5% 15%;
 }
 
@@ -258,12 +260,9 @@
 }
 
 .card {
-    /*min-height: 750px;*/
     width: 100%;
     background: #fff;
     margin-bottom: 20px;
-    border: 1px solid #c2cfc6;
-    border-radius: 4px;
 }
 
 .card img {
@@ -314,6 +313,123 @@
 .card-insta-icon {
     font-size: 28px;
     color: #E1306C;
+}
+
+.wines {
+    background-image: url('../images/background-down.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 5% 15%;
+    margin-top: -2px;
+}
+
+.wines-content-container h2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+}
+
+.wines-card {
+    margin: 32px 0;
+}
+
+.wineries-tabs-container {
+    display: flex;
+    flex-direction: row;
+    padding: 2.5% 5%;
+}
+
+.winery-tab {
+    width: 25%;
+    margin: 0 1.5%;
+    text-decoration: none;
+
+}
+
+.winery-active-tab {
+    border-bottom: 2px solid #97a19a;
+}
+
+.winery-tab-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+}
+
+.winery-tab-image-container img {
+    width: 75px;
+    height: auto;
+}
+
+.winery-tab-header h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 0 0 16px 0;
+    text-align: center;
+    color: #000;
+}
+
+.wines-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 16px 0 32px 0;
+}
+
+.wines-list-item {
+    width: 250px;
+}
+
+.wines-list-item-image-container img {
+    height: 180px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    padding: 32px 0 16px 0;
+}
+
+.wines-list-item-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.wines-list-item-info-container h4 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.wines-list-item-info-container span {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 4px;
+    text-align: center;
+
+}
+
+.wines-list-item-info-container a {
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #97a19a;
+    text-align: center;
+
 }
 
 .instagram {
