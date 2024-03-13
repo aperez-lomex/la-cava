@@ -799,6 +799,16 @@
         display: flex; 
     }
 
+    .wineries-image {
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+    }
+    
+    .wineries-image img {
+        width: 150px;
+    }
+
     .card {
         display: block;
         margin-right: 16px;
@@ -812,16 +822,6 @@
         width: 260px;
     }
 
-    .wineries-image {
-        position: absolute;
-        bottom: -15px;
-        left: 0;
-    }
-    
-    .wineries-image img {
-        width: 150px;
-    }
-
     .card img {
         padding: 32px 0 8px 0;
     }
@@ -829,6 +829,18 @@
     .card-text {
         padding: 8px 32px 32px 32px;
         text-align: center;
+    }
+
+    .wines {
+        padding: 5% 10%;
+    }
+
+    .winery-tab-image-container img {
+        width: 50px;
+    }
+
+    .winery-tab-header h3 {
+        font-size: 12px;
     }
 
     .instagram {
