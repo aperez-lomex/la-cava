@@ -12,6 +12,7 @@ import { GiGrapes } from "react-icons/gi";
 import { CiPercent } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
 import { GiNoseFront } from "react-icons/gi";
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 const Wine = (props) => {
    	console.log(props.pageContext);
@@ -30,6 +31,14 @@ const Wine = (props) => {
       	<main style={mainContainerStyles}>
         	<Navbar></Navbar>
 			<div className="wine-detail-page-container">
+				<div className="return-button-container">					
+					<a href="/">
+						<div>
+							<MdOutlineKeyboardArrowLeft></MdOutlineKeyboardArrowLeft>
+						</div>
+						Regresar
+					</a>
+				</div>
 				<div className="wine-detail-card card">
 					<div className="wine-detail-header">
 						<h1>{wine.name}</h1>
@@ -50,70 +59,69 @@ const Wine = (props) => {
 							</div>
 							<div className="wine-detail-attirbutes-container">
 								<div className="wine-detail-attirbute-container">
-									<div>
+									<div className="wine-detail-attirbute-header">
 										<FaWineGlassEmpty></FaWineGlassEmpty>
 										<span>Coupage</span>
 									</div>
-									
-									<div>
+									<div className="wine-detail-attirbute-text">
 										{renderRichText(wine.coupage, contentfulRichTextOptions)}
 									</div>
 								</div>
 								<div className="wine-detail-attirbute-container">
-									<div>
+									<div className="wine-detail-attirbutes-container">
 										{ wine.crianza ? 
 											<GiCellarBarrels></GiCellarBarrels> : 
 											<MdOutlineBubbleChart></MdOutlineBubbleChart> 
 										}
 										<span>{ wine.crianza ? 'Crianza' : 'Fermentación'}</span>
 									</div>
-									<div>
+									<div className="wine-detail-attirbute-text">
 										{ wine.crianza ? renderRichText(wine.crianza, contentfulRichTextOptions) : renderRichText(wine.fermentacion, contentfulRichTextOptions) }									
 									</div>
 								</div>
 								{/* <div className="wine-detail-attirbute-container">
-									<div>
+									<div className="wine-detail-attirbutes-container">
 										<GiGrapes></GiGrapes>
 										<span>Viñedos</span>
 									</div>
 									
-									<div>
+									<div className="wine-detail-attirbute-text">
 										{renderRichText(wine.vinedos, contentfulRichTextOptions)}
 									</div>
 								</div>
 								<div className="wine-detail-attirbute-container">
-									<div>
+									<div className="wine-detail-attirbutes-container">
 										<CiPercent></CiPercent>
 										<span>Alcohol</span>
 									</div>
-									<div>
+									<div className="wine-detail-attirbute-text">
 										<p>{wine.alcohol}</p>
 									</div>
 								</div> */}
 								<div className="wine-detail-attirbute-container">
-									<div>
+									<div className="wine-detail-attirbutes-container">
 										<FaRegEye></FaRegEye>
 										<span>Vista</span>
 									</div>
-									<div>
+									<div className="wine-detail-attirbute-text">
 										{renderRichText(wine.vista, contentfulRichTextOptions)}
 									</div>
 								</div>
 								<div className="wine-detail-attirbute-container">
-									<div>
+									<div className="wine-detail-attirbutes-container">
 										<GiNoseFront></GiNoseFront>
 										<span>Aromas</span>
 									</div>
-									<div>
+									<div className="wine-detail-attirbute-text">
 										{renderRichText(wine.aromas, contentfulRichTextOptions)}
 									</div>
 								</div>
 								<div className="wine-detail-attirbute-container">
-									<div>
+									<div className="wine-detail-attirbutes-container">
 										<GiGrapes></GiGrapes>
 										<span>Gusto</span>
 									</div>
-									<div>
+									<div className="wine-detail-attirbute-text">
 										{renderRichText(wine.gusto, contentfulRichTextOptions)}
 									</div>
 								</div>

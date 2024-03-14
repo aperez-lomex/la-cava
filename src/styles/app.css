@@ -734,6 +734,17 @@
     padding: calc(5% + 100px) 15% 5% 15%;
 }
 
+.return-button-container a {
+    display: flex;
+    flex-direction: row;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #97a19a;
+    margin-bottom: 2px;
+    width: fit-content;
+}
+
 .wine-detail-card {
     padding: 5%;
 }
@@ -786,6 +797,7 @@
     height: 500px !important;
     margin: auto !important;
     padding: 0 !important;
+    z-index: 3;
 }
 
 .bodega-logo-image {
@@ -824,16 +836,28 @@
 
 .wine-detail-description {
     margin-bottom: 3%;
+    padding-right: 5%;
+}
+
+.wine-detail-attirbutes-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .wine-detail-attirbute-container {
-    width: 75%;
-    margin-bottom: 3%;
+    width: 50%;
+    margin-bottom: 2.5%;
 }
 
 .wine-detail-attirbute-container svg {
     margin-right: 5%;
     color: #97a19a;
+}
+
+.wine-detail-attirbute-header, 
+.wine-detail-attirbute-text {
+    padding-right: 10%;
 }
 
 @media screen and (max-width: 1224px) {
@@ -854,6 +878,12 @@
 
     .clients-logo-image-container {
         width: 33%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wine-detail-attirbute-container {
+        width: 100%;
     }
 }
 
