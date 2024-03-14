@@ -41,6 +41,11 @@ exports.createPages = ({ graphql, actions }) => {
 						bodega {
 						id
 						name
+						logo {
+							file {
+							url
+							}
+						}
 						}
 						slug
 						fermentacion {

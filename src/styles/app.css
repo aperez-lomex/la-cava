@@ -750,14 +750,23 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 32px;
-    margin: 0 0 1% 0;
+    margin: 0 0 0.5% 0;
 }
 
 .wine-detail-header h2 {
     font-family: "Gothic A1", sans-serif;
     font-weight: 400;
     font-size: 28px;
-    margin: 0 0 1% 0;
+    margin: 0 0 0.5% 0;
+}
+
+.wine-detail-header h3 {
+    margin: 0;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #2b2e2c;
 }
 
 .wine-detail-content-contaier {
@@ -765,17 +774,27 @@
     flex-direction: row;
     justify-content: center;
 }
-
+ 
 .wine-detail-content-image-container {
     width: 40%;
     display: flex;
+    position: relative;
 }
 
-.wine-detail-content-image-container img {
-    width: auto;
-    height: 500px;
-    margin: auto;
-    padding: 0;
+.bottle-image {
+    width: auto !important;
+    height: 500px !important;
+    margin: auto !important;
+    padding: 0 !important;
+}
+
+.bodega-logo-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px !important;
+    height: auto !important;
+    padding: 0 !important;
 }
 
 .wine-detail-content-text-container {
@@ -791,6 +810,7 @@
     font-size: 14px;
     margin-bottom: 4px;
     text-transform: uppercase;
+    color: #2b2e2c;
 }
 
 .wine-detail-description p,
@@ -803,17 +823,17 @@
 }
 
 .wine-detail-description {
-    margin-bottom: 2.5%;
-}
-
-.wine-detail-attirbutes-container {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 3%;
 }
 
 .wine-detail-attirbute-container {
     width: 75%;
-    margin-bottom: 2.5%;
+    margin-bottom: 3%;
+}
+
+.wine-detail-attirbute-container svg {
+    margin-right: 5%;
+    color: #97a19a;
 }
 
 @media screen and (max-width: 1224px) {
@@ -925,7 +945,7 @@
     }
 
     .wines {
-        padding: 5% 10%;
+        padding: 5%;
     }
 
     .winery-tab-image-container img {
@@ -977,6 +997,10 @@
     .wine-detail-content-image-container,
     .wine-detail-content-text-container {
         width: 100%;
+    }
+
+    .bodega-logo-image {
+        left: 5%;
     }
 
     .wine-detail-card {
