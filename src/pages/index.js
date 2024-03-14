@@ -1,11 +1,12 @@
 import * as React from "react"
-import { useState }  from 'react' 
+import { useState, useEffect }  from 'react' 
 import troncoImg from '../images/tronco.png' 
 import wineriesImage from '../images/wineries-image.png';
 
 import { CiInstagram } from "react-icons/ci";
-import { CiCircleChevRight } from "react-icons/ci";
-import { CiCircleChevLeft } from "react-icons/ci";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+import { TbPointFilled } from "react-icons/tb";
 
 import '../styles/app.css';
 import { graphql } from 'gatsby'
@@ -26,6 +27,17 @@ const contentfulRichTextOptions = {
 };
 
 const IndexPage = ({data}) => {
+
+	const handleOnClickKnowMore = () => {
+        const element = document.querySelector('#history');
+        if(element) {
+            const offsetTop = 100;
+        
+            const total = element.offsetTop - offsetTop;
+            window.scrollTo({ top: total, behavior: 'smooth' });
+        }	
+    }
+	
 	console.log(data);
 	const b = data.allContentfulCavas.edges.map((edge, i) => { 
 		let bodega = edge.node;
@@ -90,6 +102,21 @@ const IndexPage = ({data}) => {
 		setSelectedTabWines(classifiedWines[id]);
    	}
 
+	useEffect(() => {
+		const hash = window.location.hash;
+		if(hash) {
+			const element = document.querySelector(hash);
+			element.scrollIntoView({behavior:"smooth"})
+		}
+		setTimeout(()=> {
+			const hash = window.location.hash;
+			if(hash) {
+				const element = document.querySelector(hash);
+				element.scrollIntoView({behavior:"smooth"})
+			}
+		}, 1000);
+	}, []);
+
   return (
     <main style={mainContainerStyles}> 
 	<Navbar></Navbar>
@@ -100,7 +127,7 @@ const IndexPage = ({data}) => {
 					<h2>Especialidades</h2>
 				</div>
 				<div className="hero-cta-container">
-					<a className="hero-cta">Conocer más</a>
+					<a className="hero-cta" onClick={handleOnClickKnowMore}>Conocer más</a>
 				</div>
 			</div>
 		</div>
@@ -122,8 +149,8 @@ const IndexPage = ({data}) => {
 			<div className="wineries-content-container">
 				<h2>Bodegas</h2>
 				<div className="wineries-carousel-container">
-					<div className="wineries-carousel-arrows">
-						<button onClick={handleLeft} ><CiCircleChevLeft/></button>
+					<div className="wineries-carousel-arrows-container">
+						<button className="wineries-carousel-arrows" disabled={index === 0} onClick={handleLeft} ><IoIosArrowBack/></button>
 					</div>
 					<div className="wineries-cards-container">
 						{
@@ -145,10 +172,16 @@ const IndexPage = ({data}) => {
 								);
 							})
 						}
+						<div className="wineries-cards-bullets">
+							<TbPointFilled></TbPointFilled>
+							<TbPointFilled></TbPointFilled>
+							<TbPointFilled></TbPointFilled>
+							<TbPointFilled></TbPointFilled>
+						</div>
 					</div>
-					<div className="wineries-carousel-arrows">
-						<button onClick={handleRight}><CiCircleChevRight/></button>
-					</div>
+					<div className="wineries-carousel-arrows-container">
+						<button className="wineries-carousel-arrows" disabled={index === 3} onClick={handleRight}><IoIosArrowForward/></button>
+					</div> 
 				</div>
 				<div className="wineries-image">
 					<img src={wineriesImage}/>
@@ -198,7 +231,7 @@ const IndexPage = ({data}) => {
 				</div>
 			</div>
 		</div>
-		<div  id="instagram" className="instagram">
+		<div id="instagram" className="instagram">
 			<div className="instagram-content-container">
 				<h2>Instagram</h2>
 				<h3>Síguenos en Instagram para mantenerte al tanto de nuestros eventos y productos</h3>
@@ -216,9 +249,7 @@ const IndexPage = ({data}) => {
 				<div className="instagram-posts-container">	
 					{
 						data.allInstaNode.edges.map(({ node }) => (
-							
-								<img key={node.id} src={node.localFile.childImageSharp.fixed.src}/>  
-															
+							<img key={node.id} src={node.localFile.childImageSharp.fixed.src}/>  	
 						))
 					}
 				</div>

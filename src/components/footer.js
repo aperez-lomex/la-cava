@@ -28,8 +28,8 @@ class Footer extends React.Component {
 							</div>
 							<div className="footer-content-info-container">
 								<h4>Teléfonos</h4>
-								<p><a href="tel:8150007579p8961">8150007579 Ext 8961</a></p>
-								<p><a href="tel:8150007581p8960">8150007581 Ext 8960</a></p>
+								<p><a href="tel:8150007579">8150007579 Ext 8961</a></p>
+								<p><a href="tel:8150007581">8150007581 Ext 8960</a></p>
 							</div>
 					</div>
 				</div>

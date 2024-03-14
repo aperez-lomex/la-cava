@@ -63,16 +63,38 @@
 
 .mobile-navbar-menu {
     display: none;
+    flex-direction: column;
+    justify-content: space-around;
     width: 100%;
     background: #fff;
-    height: 100%; 
+    height: calc(100vh - 100px);
     position: fixed;
     top: 100px;
     z-index: 9999;
 }
 
 .show-navbar-menu {
-    display: block;
+    display: flex;
+}
+
+.mobile-navbar-menu-item {
+    text-align: center;
+}
+
+.mobile-navbar-menu-item a {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: #2b2e2c;
+    cursor: pointer;
+}
+
+.main-no-scroll {
+    height: 100vh;
+  overflow-y: hidden;
 }
 
 .navbar-container {
@@ -153,10 +175,11 @@
 }
 
 .hero-cta {
-    background: #000;
-    color: #97a19a;
+    background: #97a19a;
+    color: #fff;
     padding: 10px;
     text-align: center;
+    cursor: pointer;
 }
 
 .history {
@@ -225,18 +248,29 @@
     position: relative;
 }
 
-.wineries-carousel-arrows {
+.wineries-cards-bullets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.wineries-cards-bullets svg {
+    color: #97a19a;
+}
+
+.wineries-carousel-arrows-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 8px;
 }
 
-.wineries-carousel-arrows button {
+
+.wineries-carousel-arrows {
     border: none;
     background: #d8e6dc;
-    font-size: 24px;
-    color: #2b2e2c;
+    font-size: 32px;
+    cursor: pointer;
 }
 
 .wineries-cards-container {
@@ -316,6 +350,7 @@
 .card-insta-icon {
     font-size: 28px;
     color: #E1306C;
+    cursor: pointer;
 }
 
 .wines {
@@ -352,7 +387,7 @@
     width: 25%;
     margin: 0 1.5%;
     text-decoration: none;
-
+    cursor: pointer;
 }
 
 .winery-active-tab {
@@ -662,6 +697,7 @@
     color: #fff;
     border: 0;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .footer {
@@ -738,11 +774,17 @@
     display: flex;
     flex-direction: row;
     font-family: "Gothic A1", sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 16px;
     color: #97a19a;
     margin-bottom: 2px;
     width: fit-content;
+}
+
+.return-button-icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .wine-detail-card {

@@ -33,7 +33,7 @@ const Wine = (props) => {
 			<div className="wine-detail-page-container">
 				<div className="return-button-container">					
 					<a href="/">
-						<div>
+						<div className="return-button-icon-container">
 							<MdOutlineKeyboardArrowLeft></MdOutlineKeyboardArrowLeft>
 						</div>
 						Regresar
@@ -60,7 +60,7 @@ const Wine = (props) => {
 							<div className="wine-detail-attirbutes-container">
 								<div className="wine-detail-attirbute-container">
 									<div className="wine-detail-attirbute-header">
-										<FaWineGlassEmpty></FaWineGlassEmpty>
+										<GiGrapes></GiGrapes>
 										<span>Coupage</span>
 									</div>
 									<div className="wine-detail-attirbute-text">
@@ -118,7 +118,7 @@ const Wine = (props) => {
 								</div>
 								<div className="wine-detail-attirbute-container">
 									<div className="wine-detail-attirbutes-container">
-										<GiGrapes></GiGrapes>
+										<FaWineGlassEmpty></FaWineGlassEmpty>
 										<span>Gusto</span>
 									</div>
 									<div className="wine-detail-attirbute-text">
