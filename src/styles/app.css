@@ -94,7 +94,7 @@
 
 .main-no-scroll {
     height: 100vh;
-  overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .navbar-container {
@@ -940,7 +940,7 @@
     }
 
     .history-image {
-        position: absolute;
+        position: relative;
         bottom: -5%;
         z-index: 0;
         right: -32px;
@@ -967,7 +967,6 @@
         font-size: 16px;
         position: relative;
         z-index: 1;
-        background: rgba(255, 255, 255, 0.2);
     } 
 
     .wineries {
@@ -1012,8 +1011,16 @@
     }
 
     .card-text {
-        padding: 8px 32px 32px 32px;
+        padding: 8px 24px 32px 24px;
         text-align: center;
+    }
+
+    .card:last-child {
+        margin-right: 0;
+    } 
+
+    .wineries-cards-bullets {
+        display: none;
     }
 
     .wines {
