@@ -19,6 +19,7 @@
     "gatsby": "^5.13.3",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-anchor-links": "^1.2.1",
+    "gatsby-plugin-favicons": "^2.0.0",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-source-contentful": "^8.13.1",

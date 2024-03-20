@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { BLOCKS } from "@contentful/rich-text-types"
+import SEO  from "../components/seo"
 
 import { FaWineGlassEmpty } from "react-icons/fa6";
 import { MdOutlineBubbleChart } from "react-icons/md";
@@ -137,4 +138,6 @@ const Wine = (props) => {
 
 export default Wine
 
-export const Head = () => <title>Wine Page</title>
+export const Head = () => {
+	<SEO/>
+}

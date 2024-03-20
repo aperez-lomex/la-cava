@@ -8,8 +8,10 @@ require("dotenv").config({
 
 module.exports = {
 	siteMetadata: {
-		title: `LaCava`,
-		siteUrl: `https://www.yourdomain.tld`,
+		title: 'La Cava',
+		description: 'La Cava Especialidades nace de la pasión por los vinos españoles y por el deseo de compartir con el mercado mexicano la experiencia de la mano de nuestros mejores sommeliers',
+		image: './src/images/La_Cava_Logo.jpg',
+		siteUrl: 'https://lacava-especialidades.com/',
   	},
   	plugins: [
 		{
@@ -51,6 +53,12 @@ module.exports = {
 			options: {
 				username: '49946873500', 
 			},
+		},
+		{
+			resolve: 'gatsby-plugin-favicons',
+			options: {
+			  logo: './src/images/favicon.ico',
+			}
 		}
 	]
 };
