@@ -54,11 +54,11 @@ module.exports = {
 				username: '49946873500', 
 			},
 		},
-		{
-			resolve: 'gatsby-plugin-favicons',
-			options: {
-			  logo: './src/images/favicon.ico',
-			}
-		}
+		// {
+		// 	resolve: 'gatsby-plugin-favicons',
+		// 	options: {
+		// 	  logo: './src/images/favicon.ico',
+		// 	}
+		// }
 	]
 };
