@@ -10,7 +10,7 @@ module.exports = {
 	siteMetadata: {
 		title: 'La Cava Especialidades',
 		description: 'La Cava Especialidades nace de la pasión por los vinos españoles y por el deseo de compartir con el mercado mexicano la experiencia de la mano de nuestros mejores sommeliers',
-		image: './src/images/La_Cava_Logo.jpg',
+		image: './public/static/la-cava-logo-no-title.png',
 		siteUrl: 'https://lacava-especialidades.com/',
   	},
   	plugins: [
