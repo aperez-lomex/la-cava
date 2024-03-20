@@ -409,5 +409,5 @@ export const assetQuery = graphql`
 export default IndexPage
 
 export const Head = () => {
-	<SEO/>
+	<SEO/> 
 }

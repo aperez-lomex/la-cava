@@ -8,7 +8,7 @@ require("dotenv").config({
 
 module.exports = {
 	siteMetadata: {
-		title: 'La Cava',
+		title: 'La Cava Especialidades',
 		description: 'La Cava Especialidades nace de la pasión por los vinos españoles y por el deseo de compartir con el mercado mexicano la experiencia de la mano de nuestros mejores sommeliers',
 		image: './src/images/La_Cava_Logo.jpg',
 		siteUrl: 'https://lacava-especialidades.com/',
@@ -54,11 +54,11 @@ module.exports = {
 				username: '49946873500', 
 			},
 		},
-		{
-			resolve: 'gatsby-plugin-favicons',
-			options: {
-			  logo: './src/images/la-cava-logo-no-title.png',
-			}
-		}
+		// {
+		// 	resolve: 'gatsby-plugin-favicons',
+		// 	options: {
+		// 	  logo: './src/images/la-cava-logo-no-title.png',
+		// 	}
+		// }
 	]
 };
