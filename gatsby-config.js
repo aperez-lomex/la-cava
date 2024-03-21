@@ -10,7 +10,7 @@ module.exports = {
 	siteMetadata: {
 		title: 'La Cava Especialidades',
 		description: 'La Cava Especialidades nace de la pasión por los vinos españoles y por el deseo de compartir con el mercado mexicano la experiencia de la mano de nuestros mejores sommeliers',
-		image: './src/images/la-cava-logo-no-title.png',
+		image: '/la-cava-logo-no-title.png',
 		siteUrl: 'https://lacava-especialidades.com/',
   	},
   	plugins: [
@@ -55,16 +55,16 @@ module.exports = {
 			},
 		},
 		  {
-		  resolve: `gatsby-plugin-manifest`,
-		  options: {
-		  name: `La Cava Especialidades`,
-		  short_name: `La Cava Especialidades`,
-		  start_url: `/`,
-		  background_color: `#ffffff`,
-		  theme_color: `#663399`,
-		  display: `standalone`,
-		  // Generate PWA icons and a favicon
-		  icon: `src/images/la-cava-logo-no-title.png`,}
+		  	resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: `La Cava Especialidades`,
+				short_name: `La Cava Especialidades`,
+				start_url: `/`,
+				background_color: `#ffffff`,
+				theme_color: `#663399`,
+				display: `standalone`,
+				icon: `src/images/la-cava-logo-no-title.png`,
+			}
 		}
 	]
 };

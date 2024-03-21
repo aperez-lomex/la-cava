@@ -2,7 +2,7 @@ import * as React from "react"
 import { useState, useEffect }  from 'react' 
 import troncoImg from '../images/tronco.png' 
 import wineriesImage from '../images/wineries-image.png';
-import SEO from "../components/seo"
+import { SEO } from "../components/seo";
 
 import { CiInstagram } from "react-icons/ci";
 import { IoIosArrowBack } from "react-icons/io";
@@ -408,6 +408,6 @@ export const assetQuery = graphql`
 
 export default IndexPage
 
-export const Head = () => {
-	<SEO/> 
-}
+export const Head = () => (
+	<SEO />
+)

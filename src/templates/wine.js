@@ -138,6 +138,6 @@ const Wine = (props) => {
 
 export default Wine
 
-export const Head = () => {
-	<SEO/>
-}
+export const Head = () => (
+	<seo />
+)
