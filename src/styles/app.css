@@ -857,12 +857,13 @@
 }
 
 .images-card-container img {
-    width: 100%;
+    width: auto;
     height: auto;
     max-height: 50vh;
     margin: 0 auto;
     padding: 0;
     z-index: 3;
+    max-width: 100%;
 }
 
 .active-bottle-image {
