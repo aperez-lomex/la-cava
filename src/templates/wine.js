@@ -1,10 +1,12 @@
 import * as React from "react"
+import { useState }  from 'react' 
+
 import { graphql } from "gatsby"
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { BLOCKS } from "@contentful/rich-text-types"
-import SEO  from "../components/seo"
+import { SEO } from "../components/seo";
 
 import { FaWineGlassEmpty } from "react-icons/fa6";
 import { MdOutlineBubbleChart } from "react-icons/md";
@@ -14,10 +16,15 @@ import { CiPercent } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
 import { GiNoseFront } from "react-icons/gi";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Wine = (props) => {
    	console.log(props.pageContext);
-	const wine = props.pageContext.data
+	const wine = Object.assign({}, props.pageContext.data, { 
+		allImages: props.pageContext.data.otherImages ? [...[props.pageContext.data.image], ...props.pageContext.data.otherImages] : [props.pageContext.data.image]
+	})
+	console.log(wine)
    	const mainContainerStyles = {
 		fontFamily: "-apple-system, Roboto, sans-serif, serif", 
       	margin: '-8px',
@@ -27,6 +34,34 @@ const Wine = (props) => {
 			[BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p> 
 		}
 	};
+
+	const initialImages = wine.allImages.map((image, i) => { 
+	
+		return Object.assign({}, image, { activeImage : i === 0 ? true : false })
+	});
+	console.log(initialImages);
+	const [index, setIndex] = useState(0); 
+	const [images, setImages] = useState(initialImages);	
+
+	const handleLeft = () => {
+		if(index > 0) {
+			images[index].activeImage = false;
+			let i = index-1;
+			setIndex(i);
+			images[i].activeImage = true; 
+			setImages([...images]);
+		}
+	}
+   
+   const handleRight = () => {
+		if(index < images.length-1) {
+			images[index].activeImage = false;
+			let i = index+1;
+			setIndex(i);
+			images[i].activeImage = true; 
+			setImages([...images]);
+		}
+   }
 
     return (
       	<main style={mainContainerStyles}>
@@ -48,8 +83,32 @@ const Wine = (props) => {
 					</div>
 					<div className="wine-detail-content-contaier">
 						<div className="wine-detail-content-image-container">   
-							<img className="bottle-image" src={wine.image.file.url}></img>
-							<img className="bodega-logo-image" src={wine.bodega.logo.file.url}></img>
+							{
+								images.length > 1 ? 
+								<div className="images-carousel-arrows-container">
+									<button className="images-carousel-arrows" disabled={index === 0} onClick={handleLeft} ><IoIosArrowBack/></button>
+								</div>
+								: 
+								''
+							}							
+							<div className="images-card-container">
+								<img className="bodega-logo-image" src={wine.bodega.logo.file.url}></img>
+								{
+									images.map((image) => { 
+										return (					
+											<img key={image.id} className={image.activeImage ? 'active-bottle-image bottle-image' : 'inactive-bottle-image bottle-image'} src={image.file.url}></img> 
+										);
+									})
+								}
+							</div>
+							{
+								images.length > 1 ? 
+								<div className="images-carousel-arrows-container">
+									<button className="images-carousel-arrows" disabled={index === images.length-1} onClick={handleRight}><IoIosArrowForward/></button>
+								</div>
+								:
+								''
+							} 
 						</div>
 						<div className="wine-detail-content-text-container">
 							<div className="wine-detail-description">
@@ -139,5 +198,5 @@ const Wine = (props) => {
 export default Wine
 
 export const Head = () => (
-	<seo />
+	<SEO />
 )

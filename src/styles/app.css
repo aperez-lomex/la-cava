@@ -829,17 +829,48 @@
 }
  
 .wine-detail-content-image-container {
-    width: 40%;
+    width: 50%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     position: relative;
 }
 
-.bottle-image {
-    width: auto !important;
-    height: 500px !important;
-    margin: auto !important;
-    padding: 0 !important;
+.images-carousel-arrows-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 8px;
+}
+
+.images-carousel-arrows {
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer; 
+}
+
+.images-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.images-card-container img {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    margin: 0 auto;
+    padding: 0;
     z-index: 3;
+}
+
+.active-bottle-image {
+    display: flex !important;
+}
+
+.inactive-bottle-image {
+    display: none !important;
 }
 
 .bodega-logo-image {
@@ -1079,7 +1110,7 @@
     }
 
     .bodega-logo-image {
-        left: 5%;
+        display: none !important; 
     }
 
     .wine-detail-card {

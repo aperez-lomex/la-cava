@@ -30,6 +30,11 @@ exports.createPages = ({ graphql, actions }) => {
 							url
 						}
 						}
+						otherImages {
+							file {
+							  url
+							}
+						}
 						name
 						region
 						vinedos {
