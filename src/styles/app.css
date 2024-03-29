@@ -883,7 +883,7 @@
 }
 
 .wine-detail-content-text-container {
-    width: 60%;
+    width: 50%;
     text-align: justify;
     padding: 5% 0;
 }
@@ -1027,15 +1027,14 @@
     .card {
         display: block;
         margin-right: 16px;
+        min-width: 300px;
     }
 
     .card:last-child {
         margin-right: 0;
     }
 
-    .card-text {
-        width: 260px;
-    }
+
 
     .card img {
         padding: 32px 0 8px 0;
@@ -1115,6 +1114,14 @@
 
     .wine-detail-card {
         padding: 0;
+    }
+
+    .images-carousel-arrows-container {
+        margin: 0;
+    }
+
+    .images-carousel-arrows {
+        font-size: 24px;
     }
 
 
