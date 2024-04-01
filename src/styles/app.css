@@ -464,8 +464,8 @@
 .wines-list-item-info-container a {
     font-family: "Gothic A1", sans-serif;
     font-weight: 300;
-    font-size: 14px;
-    color: #97a19a;
+    font-size: 16px;
+    color: #2b2e2c;
     text-align: center;
 
 }
@@ -775,8 +775,8 @@
     flex-direction: row;
     font-family: "Gothic A1", sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    color: #97a19a;
+    font-size: 18px;
+    color: #2b2e2c;
     margin-bottom: 2px;
     width: fit-content;
 }

@@ -5,8 +5,8 @@ export const SEO = ({ title, description, pathname, children }) => {
   const { title: defaultTitle, description: defaultDescription, image, siteUrl } = useSiteMetadata()
 
   const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
+    title: title,
+    description: description,
     image: `${siteUrl}${image}`,
     url: `${siteUrl}${pathname || ``}`,
   }
@@ -22,7 +22,6 @@ export const SEO = ({ title, description, pathname, children }) => {
       <meta property="og:type" content="website" />
       <meta property="og:url" content={seo.url}/>
       <meta property="og:image" content={seo.image}/>
-
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} /> 
